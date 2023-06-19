@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 
-const Packages = () => {
+const Packages = ({
+  handleRegisteration,
+  curr_package
+}) => {
   const [activeTab, setActiveTab] = useState("Basic");
   const TabsList = [
     { lbl: "Basic" },
@@ -13,7 +16,7 @@ const Packages = () => {
         <div className="sec-tag">Packages</div>
         <div className=""></div>
       </div>
-      <div className="tabs flex items-center">
+      {/* <div className="tabs flex items-center">
         {TabsList.map((item, index) => (
           <div
             key={index}
@@ -25,88 +28,269 @@ const Packages = () => {
             <div className="lbl">{item.lbl}</div>
           </div>
         ))}
-      </div>
+      </div> */}
       <div className="package_grid" id="packageslist">
-        {activeTab === "Basic" ? (
+
+        {/* {activeTab === "Basic" ? (
           <>
-            <div className="pack-box flex flex-col">
+
+          {curr_package<=0?(        
+
+          <div className="pack-box flex flex-col">
               <div className="pack-name">Associate</div>
               <div className="pack-center flex items-center justify-center">
-                <div className="amount">$49</div>
+                <div className="amount">$100</div>
               </div>
-              <button className="btn-buy button">Buy Now</button>
-            </div>
-            <div className="pack-box flex flex-col">
-              <div className="pack-name">Basic</div>
-              <div className="pack-center flex items-center justify-center">
-                <div className="amount">$29</div>
-              </div>
-              <button className="btn-buy button">Buy Now</button>
-            </div>
-            <div className="pack-box flex flex-col">
-              <div className="pack-name">Bronze</div>
-              <div className="pack-center flex items-center justify-center">
-                <div className="amount">$14</div>
-              </div>
-              <button className="btn-buy button">Buy Now</button>
-            </div>
+              <button className="btn-buy button" 
+              
+              onClick={(e) => {
+
+                          handleRegisteration(0);
+
+                         }}>Buy Now</button>
+            </div>):(null)}
+
+            {curr_package<=1?(
+              <div className="pack-box flex flex-col">
+                <div className="pack-name">Basic</div>
+                <div className="pack-center flex items-center justify-center">
+                  <div className="amount">$500</div>
+                </div>
+                <button className="btn-buy button" 
+                
+                onClick={(e) => {
+                  
+                            handleRegisteration(1);
+  
+                           }}>Buy Now</button>
+              </div>):(null)}
+
+            
+            {curr_package<=2?(
+              <div className="pack-box flex flex-col">
+                <div className="pack-name">Bronze</div>
+                <div className="pack-center flex items-center justify-center">
+                  <div className="amount">$1000</div>
+                </div>
+                <button className="btn-buy button" 
+                
+                onClick={(e) => {
+                  
+                            handleRegisteration(2);
+  
+                           }}>Buy Now</button>
+              </div>):(null)}
+
           </>
         ) : activeTab === "Premium" ? (
           <>
+            
+            {curr_package<=3?(
             <div className="pack-box flex flex-col">
               <div className="pack-name">Silver</div>
               <div className="pack-center flex items-center justify-center">
-                <div className="amount">$49</div>
+                <div className="amount">$3000</div>
               </div>
-              <button className="btn-buy button">Buy Now</button>
+              <button className="btn-buy button" 
+              
+              onClick={(e) => {
+                
+                          handleRegisteration(3);
+
+                         }}>Buy Now</button>
+            </div>):(null)}
+
+            {curr_package<=4?(          
+                <div className="pack-box flex flex-col">
+            <div className="pack-name">Gold</div>
+            <div className="pack-center flex items-center justify-center">
+              <div className="amount">$5000</div>
             </div>
-            <div className="pack-box flex flex-col">
-              <div className="pack-name">Gold</div>
-              <div className="pack-center flex items-center justify-center">
-                <div className="amount">$29</div>
-              </div>
-              <button className="btn-buy button">Buy Now</button>
+            <button className="btn-buy button" 
+            
+            onClick={(e) => {
+              
+                        handleRegisteration(4);
+
+                       }}>Buy Now</button>
+          </div>):(null)}
+
+
+            {curr_package<=5?(            <div className="pack-box flex flex-col">
+            <div className="pack-name">Platinum</div>
+            <div className="pack-center flex items-center justify-center">
+              <div className="amount">$10000</div>
             </div>
-            <div className="pack-box flex flex-col">
-              <div className="pack-name">Platinum</div>
-              <div className="pack-center flex items-center justify-center">
-                <div className="amount">$14</div>
-              </div>
-              <button className="btn-buy button">Buy Now</button>
-            </div>
+            <button className="btn-buy button" 
+            
+            onClick={(e) => {
+              
+                        handleRegisteration(5);
+
+                       }}>Buy Now</button>
+          </div>):(null)}
+
+
           </>
-        ) : activeTab === "Premium Plus" ? (
+        ) : activeTab === "Premium Plus" ? ( */}
           <>
+
+          {curr_package<0?(        
+
+<div className="pack-box flex flex-col">
+    <div className="pack-name">Associate</div>
+    <div className="pack-center flex items-center justify-center">
+      <div className="amount">$100</div>
+    </div>
+    <button className="btn-buy button" 
+    
+    onClick={(e) => {
+
+                handleRegisteration(0);
+
+               }}>Buy Now</button>
+  </div>):(null)}
+
+  {curr_package<1?(
+    <div className="pack-box flex flex-col">
+      <div className="pack-name">Basic</div>
+      <div className="pack-center flex items-center justify-center">
+        <div className="amount">$500</div>
+      </div>
+      <button className="btn-buy button" 
+      
+      onClick={(e) => {
+        
+                  handleRegisteration(1);
+
+                 }}>Buy Now</button>
+    </div>):(null)}
+
+  
+  {curr_package<2?(
+    <div className="pack-box flex flex-col">
+      <div className="pack-name">Bronze</div>
+      <div className="pack-center flex items-center justify-center">
+        <div className="amount">$1000</div>
+      </div>
+      <button className="btn-buy button" 
+      
+      onClick={(e) => {
+        
+                  handleRegisteration(2);
+
+                 }}>Buy Now</button>
+    </div>):(null)}
+    {curr_package<3?(
             <div className="pack-box flex flex-col">
+              <div className="pack-name">Silver</div>
+              <div className="pack-center flex items-center justify-center">
+                <div className="amount">$3000</div>
+              </div>
+              <button className="btn-buy button" 
+              
+              onClick={(e) => {
+                
+                          handleRegisteration(3);
+
+                         }}>Buy Now</button>
+            </div>):(null)}
+
+            {curr_package<4?(          
+                <div className="pack-box flex flex-col">
+            <div className="pack-name">Gold</div>
+            <div className="pack-center flex items-center justify-center">
+              <div className="amount">$5000</div>
+            </div>
+            <button className="btn-buy button" 
+            
+            onClick={(e) => {
+              
+                        handleRegisteration(4);
+
+                       }}>Buy Now</button>
+          </div>):(null)}
+
+
+            {curr_package<5?(            <div className="pack-box flex flex-col">
+            <div className="pack-name">Platinum</div>
+            <div className="pack-center flex items-center justify-center">
+              <div className="amount">$10000</div>
+            </div>
+            <button className="btn-buy button" 
+            
+            onClick={(e) => {
+              
+                        handleRegisteration(5);
+
+                       }}>Buy Now</button>
+          </div>):(null)}
+
+            {curr_package<6?(            <div className="pack-box flex flex-col">
               <div className="pack-name">Platinum+</div>
               <div className="pack-center flex items-center justify-center">
-                <div className="amount">$49</div>
+                <div className="amount">$20000</div>
               </div>
-              <button className="btn-buy button">Buy Now</button>
+              <button className="btn-buy button" 
+              
+              onClick={(e) => {
+                
+                          handleRegisteration(6);
+
+                         }}>Buy Now</button>
+            </div>):(null)}
+
+
+            {curr_package<7?(            <div className="pack-box flex flex-col">
+            <div className="pack-name">Business</div>
+            <div className="pack-center flex items-center justify-center">
+              <div className="amount">$50000</div>
             </div>
+            <button className="btn-buy button" 
+            
+            onClick={(e) => {
+              
+                        handleRegisteration(7);
+
+                       }}>Buy Now</button>
+          </div>):(null)}
+
+
+            {curr_package<8?(            
+              <div className="pack-box flex flex-col">
+            <div className="pack-name">Business+</div>
+            <div className="pack-center flex items-center justify-center">
+              <div className="amount">$75000</div>
+            </div>
+            <button className="btn-buy button" 
+            
+            onClick={(e) => {
+              
+                        handleRegisteration(8);
+
+                       }}>Buy Now</button>
+          </div>):(null)}
+
+
+            {curr_package<9?(            
+              
             <div className="pack-box flex flex-col">
-              <div className="pack-name">Business</div>
-              <div className="pack-center flex items-center justify-center">
-                <div className="amount">$29</div>
-              </div>
-              <button className="btn-buy button">Buy Now</button>
+            <div className="pack-name">Professional</div>
+            <div className="pack-center flex items-center justify-center">
+              <div className="amount">$100000</div>
             </div>
-            <div className="pack-box flex flex-col">
-              <div className="pack-name">Business+</div>
-              <div className="pack-center flex items-center justify-center">
-                <div className="amount">$14</div>
-              </div>
-              <button className="btn-buy button">Buy Now</button>
-            </div>
-            <div className="pack-box flex flex-col">
-              <div className="pack-name">Professional</div>
-              <div className="pack-center flex items-center justify-center">
-                <div className="amount">$14</div>
-              </div>
-              <button className="btn-buy button">Buy Now</button>
-            </div>
+            <button className="btn-buy button" 
+            
+            onClick={(e) => {
+              
+                        handleRegisteration(9);
+
+                       }}>Buy Now</button>
+          </div>):(null)}
+
+
           </>
-        ) : null}
+        {/* ) : null} */}
       </div>
     </div>
   );

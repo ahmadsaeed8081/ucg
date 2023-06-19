@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState,useEffect }  from "react";
 import Countdown, { zeroPad } from "react-countdown";
 
-const PaymentWithDraw = ({ setOpen, setOpenVerify }) => {
-  const ENDTIME = 1685012370000;
+const PaymentWithDraw = (props) => {
+  const ENDTIME = (Number(props.curr_time)+ Number(props.time ))*1000; 
+  const [withdrawAmount, set_withdrawAmount] = useState(false);
+
   const countdownrender = ({ days, hours, minutes, seconds, completed }) => {
     if (completed) {
       return <>00 Days 00 Hours 00 Min 00 Sec</>;
@@ -17,6 +19,23 @@ const PaymentWithDraw = ({ setOpen, setOpenVerify }) => {
     }
   };
 
+  function Pre_withdraw_Handle()
+  {
+    if(!props.verify)
+    {
+      props.setOpen(false);
+      props.setOpenVerify(true);
+
+    }
+    else{
+      props.handleWithdraw(withdrawAmount);
+    }
+
+
+  }
+
+
+
   return (
     <div className="payment-withdraw-popup flex">
       <div className="withdraw-popup-wrapper flex flex-col">
@@ -24,14 +43,19 @@ const PaymentWithDraw = ({ setOpen, setOpenVerify }) => {
         <div className="form-block flex flex-col">
           <div className="input-field flex flex-col">
             <div className="lbl">My Balance</div>
-            <input type="text" placeholder="$000.00" className="txt cleanbtn" />
+            <input type="text" readOnly placeholder="$000.00" value={"$"+props.balance}className="txt cleanbtn" />
           </div>
           <div className="input-field flex flex-col">
             <div className="lbl">Amount (min $10 - Max $50)</div>
             <input
-              type="text"
+              type="number"
               placeholder="Enter Amount"
               className="txt cleanbtn"
+              value={withdrawAmount}
+              onChange={(e) => {
+              set_withdrawAmount(e.target.value);
+            }} 
+
             />
           </div>
           <div className="input-field flex flex-col">
@@ -46,8 +70,8 @@ const PaymentWithDraw = ({ setOpen, setOpenVerify }) => {
             <button
               className="btn button"
               onClick={(e) => {
-                setOpen(false);
-                setOpenVerify(true);
+                Pre_withdraw_Handle();
+   
               }}
             >
               Withdraw Payment

@@ -7,8 +7,8 @@ const UserType = ({
 }) => {
   const [selectedUserType, setSelectedUserType] = useState("");
   const typesList = [
-    { lbl: "Left", value: "left" },
-    { lbl: "Right", value: "right" },
+    { lbl: "Left", value: "1" },
+    { lbl: "Right", value: "2" },
   ];
   return (
     <div className="user-type-comp flex flex-col ">

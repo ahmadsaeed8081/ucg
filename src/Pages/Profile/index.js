@@ -3,7 +3,7 @@ import Loader from "../../components/Loader";
 import Wrapper from "../../routes/Wrapper";
 import { EditIcon } from "../../icons";
 
-const Profile = () => {
+const Profile = (props) => {
   const [profileImage, setProfileImage] = useState();
   const [posterImage, setPosterImage] = useState();
 
@@ -82,6 +82,7 @@ const Profile = () => {
                     type="text"
                     placeholder="First Name"
                     className="txt cleanbtn"
+                    value={props.response.firstName}
                   />
                 </div>
                 <div className="input-field flex flex-col">
@@ -90,6 +91,7 @@ const Profile = () => {
                     type="text"
                     placeholder="Last Name"
                     className="txt cleanbtn"
+                    value={props.response.lastName}
                   />
                 </div>
               </div>
@@ -100,14 +102,17 @@ const Profile = () => {
                     type="email"
                     placeholder="Email"
                     className="txt cleanbtn"
+                    value={props.response.email}
                   />
                 </div>
                 <div className="input-field flex flex-col">
-                  <div className="lbl">Phone No.</div>
+                  <div className="lbl">Age</div>
                   <input
                     type="text"
                     placeholder="Phone No."
                     className="txt cleanbtn"
+                    value={props.response.age}
+
                   />
                 </div>
               </div>
