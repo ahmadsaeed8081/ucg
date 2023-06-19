@@ -302,7 +302,7 @@ const Main = (props) => {
 
   const handleClick = () => {
     // console.log("what is e", e);
-    navigator.clipboard.writeText("https://global.vercel.app/?ref="+userId);
+    navigator.clipboard.writeText("https://uglobal.vercel.app/?ref="+userId);
 
     setShowMessage(true);
     setIsButtonDisabled(true);
@@ -525,7 +525,7 @@ const Main = (props) => {
               <div className="link-box flex items-center">
                 <div className="link-left flex items-center">
                   <div className="link-lbl">Referral Link:</div>
-                  <div className="link-code">https://global.vercel.app/?ref={userId}</div>
+                  <div className="link-code">https://uglobal.vercel.app/?ref={userId}</div>
                 </div>
                 <div className="link-right items-center">
                   <button
