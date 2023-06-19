@@ -267,7 +267,7 @@ useEffect( ()=>{
       ).then((response)=>{
         console.log(response);
 
-        if(response.data.emailVerified!=true)
+        if(response.data.emailVerified==true)
         {
           // alert("alert verify ")
           set_is_Verified(true);
